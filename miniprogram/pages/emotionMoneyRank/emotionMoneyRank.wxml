@@ -1,0 +1,44 @@
+<!--index.wxml-->
+<view class="container">
+  <view class="rankTitle">
+    情绪财富榜
+  </view>
+  <view wx:if="{{stableRankLoaded && stableRank.length < 1}}">
+    还没有人上榜呢~
+  </view>
+</view>
+
+<view
+  class="table"
+  wx:if="{{stableRankLoaded && stableRank.length > 0}}">
+    <view class="tr bg-w">
+      <view class="th">排名</view>
+      <view class="th">称谓</view>
+      <view class="th ">昵称</view>
+      <view class="th ">情绪总值</view>
+    </view>
+    <block
+      wx:for="{{stableRank}}"
+      wx:if="{{stableRank.length > 0}}"
+      wx:key="unique">
+      <view
+       class="{{index === currentUserRank ? 'tr bg-match': 'tr bg-g'}}"
+       wx:if="{{index % 2 == 0}}">
+        <view class="td">{{index + 1}}</view>
+        <view class="td">{{item.rankTitle}}</view>
+        <view class="td">{{item.nickName}}</view>
+        <view class="td">{{item.emotionMoneyHistory}}</view>
+      </view>
+      <view
+       class="{{index === currentUserRank ? 'tr bg-match': 'tr'}}"
+       wx:else>
+        <view class="td">{{index + 1}}</view>
+        <view class="td">{{item.rankTitle}}</view>
+        <view class="td">{{item.nickName}}</view>
+        <view class="td">{{item.emotionMoneyHistory}}</view>
+      </view>
+    </block>
+</view>
+
+
+

@@ -1,0 +1,47 @@
+/**index.wxss**/
+
+.rankTitle{
+  color: #6666FF;
+  font-size: 22px;
+  margin:50rpx
+}
+
+.table {
+  border: 0px solid darkgray;
+}
+.tr {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  height: 3rem;
+  align-items: center;
+}
+.td {
+  font-size: 30rpx;
+  width:25%;
+  justify-content: center;
+  text-align: center;
+}
+.bg-w{
+  background: snow;
+}
+.bg-g{
+  background: #E6F3F9;
+}
+.bg-match{
+  background: #66CCFF;
+}
+.bg-match > view{
+  color: white;
+}
+.th {
+  width: 25%;
+  justify-content: center;
+  background: #66CCFF;
+  color: #fff;
+  display: flex;
+  height: 3rem;
+  align-items: center;
+}
+
+

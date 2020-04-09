@@ -1,0 +1,98 @@
+<!--index.wxml-->
+
+
+
+<view class="full-screen" wx:if="{{isfrontendFormatLoaded}}">
+
+  <div 
+    wx:if="{{userInfo.isLoaded}}"
+    style="color: #6666FF;font-size: 22px; margin-bottom:100rpx">
+    {{userTemp.nickName ? userTemp.nickName: '陌生人'}}, {{greeting}}
+  </div>
+
+  <div class="weui-cell" wx:if="{{userInfo.isLoaded && frontendFormat === 1 }}">
+      <div class="weui-cell__bd">
+          <textarea bindinput="bindDiaryInput" class="weui-textarea" placeholder="用简短的话概括今天的经历与心情" rows="3" fixed='true' style="color: #333399; background-color: #EFEFEF" value="{{inputDiary}}" ></textarea>
+          <div class="weui-textarea-counter"><span>{{inputDiaryChineseWordNum}}</span>/{{diaryUpperLimit}}</div>
+      </div>
+  </div>
+
+  
+  <div class="weui-cell" wx:if="{{userInfo.isLoaded && frontendFormat === 0 }}">
+      <div class="weui-cell__bd">
+          <textarea disabled='true' placeholder="请在下方选择您的情绪~" bindinput="bindDiaryInput" class="weui-textarea" rows="3" fixed='true' style="color: #333399; background-color: #EFEFEF" value="{{inputDiary}}" ></textarea>
+      </div>
+  </div>
+
+
+
+  <radio-group style="margin-top:30rpx;" wx:if="{{userInfo.isLoaded && frontendFormat === 0 }}" bindchange="onRadioChange">
+
+      <radio class="radio" style="margin:10rpx;" wx:key="name" wx:for-items="{{emotionRadios}}" value="{{item.value}}" checked="{{item.checked}}">
+        <text>{{item.name}} </text>
+      </radio>
+
+  </radio-group>
+
+  <checkbox-group style="margin-top:30rpx;" wx:if="{{userInfo.isLoaded}}" bindchange="shareCheckboxChange">
+    <!-- <label class="checkbox" wx:for="{{items}}"> -->
+    <checkbox style="width:400rpx;" value="{{shareCheckBox.name}}" checked="{{shareCheckBox.checked}}">
+      {{shareCheckBox.value}} 
+    </checkbox>
+    <!-- </label> -->
+  </checkbox-group>
+
+  <button
+    wx:if="{{!userInfo.isLoaded && pageLoadFailed}}"
+    class="weui-btn"
+    style="background-color: #00BFFF; margin-top: 80rpx" 
+    type="primary"
+    bindtap="refreshPage"
+  >
+    刷新页面
+  </button>
+
+  <button 
+    wx:if="{{userInfo.isLoaded && isAuthorized && userTemp.nickName}}"
+    class="weui-btn" 
+    style="background-color: #00BFFF; margin-top: 80rpx" 
+    type="primary"
+    disabled="{{saveDiaryButtonDisabled}}"
+    bindtap="saveDiary">
+    保存心情
+  </button>
+
+  <button
+    wx:if="{{userInfo.isLoaded && !isAuthorized && !userTemp.nickName}}"
+    class="weui-btn"
+    style="background-color: #00BFFF; margin-top: 80rpx" 
+    type="primary"
+    open-type="getUserInfo"
+    disabled="{{authorizedButtonDisabled}}"
+    bindgetuserinfo="bindGetUserInfoNew"
+  >
+    保存授权
+  </button>
+  
+  <view
+    wx:if="{{userInfo.isLoaded}}"
+    style="font-size:10px; margin-top: 50rpx" >
+     <navigator style="align-items: center;" open-type="navigate" url="/pages/userProtocol/userProtocol">
+       使用本小程序，即表示接受 <text style="color: orange;text-decoration: underline">用户协议</text>
+     </navigator>
+  </view>
+
+
+</view>
+
+<view>
+  <button
+    wx:if="{{!isfrontendFormatLoaded && pageLoadFailed}}"
+    class="weui-btn"
+    style="background-color: #00BFFF; margin-top: 80rpx" 
+    type="primary"
+    bindtap="refreshPage"
+  >
+    刷新页面
+  </button>
+</view>

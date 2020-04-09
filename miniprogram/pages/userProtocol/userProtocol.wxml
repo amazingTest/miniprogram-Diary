@@ -1,0 +1,7 @@
+<!--miniprogram/pages/userProtocol.wxml-->
+<div style="color: blue; margin: 20rpx; flex-direction: row">1. 在未经您允许的前提下，您的情绪只对您可见。</div>
+<div style="margin: 20rpx; flex-direction: row">2. 选择公开心情即表示您保存的情绪内容可被其他用户在「漂流记」中打捞。</div>
+<div style="margin: 20rpx; flex-direction: row">3. 正常情况下，您一天内只能保存一篇情绪且内容无法再次修改，请认真对待每一篇情绪。</div>
+<div style="margin: 20rpx; flex-direction: row">4. 情绪评测结果不一定完全准确。</div>
+<div style="margin: 20rpx; flex-direction: row">5. 您的部分数据（包括但不限于平均佛系值、打捞次数、情绪币总值）排行如果位于前 50 则会出现在排行榜中。</div>
+

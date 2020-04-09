@@ -1,0 +1,122 @@
+<!--index.wxml-->
+
+<!-- <script type="text/javascript" src="http://res.wx.qq.com/open/js/jweixin-1.2.0.js"></script> -->
+
+<view class="full-screen">
+
+  <div 
+    wx:if="{{isInfoLoaded && isDiariesNumLoaded}}"
+    class="header">
+    <text wx:if="{{fromMy !== '1'}}">
+      {{diaryOwner}}的第 {{diariesNum}} 篇情绪
+    </text>
+    <text wx:if="{{fromMy === '1'}}">
+      {{diaryOwner}}的小情绪
+    </text>
+  </div>
+
+
+  <div 
+    wx:if="{{isInfoLoaded && isDiariesNumLoaded}}"
+    class="diary">
+      <view class="container">
+        <text class="dairyCreateAt">
+          {{diaryCreateAt}}
+        </text>
+      </view>
+      <view class="container">
+        <text class="dairyContent">
+          {{diaryContent}}
+        </text>
+      </view>
+  </div>
+  
+  <view class="emotion" wx:if="{{isInfoLoaded && isDiariesNumLoaded}}">
+    <text style="color: #FF9900">开心</text>
+    <text style="color: #660099">难过</text>
+    <text style="color: #00CC00">佛系</text>
+  </view>
+
+  <view class="emotion" wx:if="{{isInfoLoaded && isDiariesNumLoaded}}">
+    <image src="../../images/emotion/happy.png"></image>
+    <image src="../../images/emotion/sad.png"></image>
+    <image src="../../images/emotion/stable.png"></image>
+  </view>
+
+  <view class="emotion" wx:if="{{isInfoLoaded && isDiariesNumLoaded}}">
+    <text wx:if="{{isEmotionGenerated}}" style="color: #FF9900">
+      {{emotionPositive}}%
+    </text>
+    <text wx:if="{{!isEmotionGenerated}}" style="color: #FF9900">
+      {{emotionPositive}}
+    </text>
+    <text wx:if="{{isEmotionGenerated}}" style="color: #660099">
+      {{emotionNegative}}%
+    </text>
+    <text wx:if="{{!isEmotionGenerated}}" style="color: #FF9900">
+      {{emotionPositive}}
+    </text>
+    <text wx:if="{{isEmotionGenerated}}" style="color: #00CC00">
+      {{emotionStable}}%
+    </text>
+    <text wx:if="{{!isEmotionGenerated}}" style="color: #FF9900">
+      {{emotionPositive}}
+    </text>
+  </view>
+
+  <button 
+    wx:if="{{isInfoLoaded && isDiariesNumLoaded && !isEmotionGenerated && !isEmotionSaved}}"
+    class="weui-btn" 
+    style="background-color: #00BFFF; margin-top: 50rpx; margin-bottom: 70rpx" 
+    type="primary" 
+    bindtap="generateDiaryEmotion">
+    生成情绪值
+  </button>
+
+  <!--生成和保存连成一步了，故暂时不用这个按钮 <button 
+    wx:if="{{isInfoLoaded && isDiariesNumLoaded && isEmotionGenerated && !isEmotionSaved}}"
+    class="weui-btn" 
+    style="background-color: {{emotionColor}}; margin-top: 50rpx; margin-bottom: 70rpx" 
+    type="primary" 
+    bindtap="saveDiaryEmotion">
+    保存情绪值
+  </button> -->
+
+  <button 
+    wx:if="{{isInfoLoaded && isDiariesNumLoaded && isEmotionGenerated && !isEmotionSaved}}"
+    class="weui-btn" 
+    style="background-color: #00BFFF; margin-top: 30rpx; margin-bottom: 70rpx" 
+    type="primary" 
+    bindtap="saveDiaryEmotion">
+    生成情绪值
+  </button>
+
+  <view class="shareAndDonate">
+    <button 
+      wx:if="{{isInfoLoaded && isDiariesNumLoaded && isEmotionGenerated && isEmotionSaved}}"
+      class="weui-btn" 
+      style="background-color: {{emotionColor}}; margin: 40rpx" 
+      type="primary" 
+      bindtap="navigateToDrift">
+      去试试打捞情绪
+    </button>
+    <button 
+      wx:if="{{isInfoLoaded && isDiariesNumLoaded && isEmotionGenerated && isEmotionSaved}}"
+      class="weui-btn" 
+      style="background-color: {{emotionColor}}; margin: 40rpx"
+      type="primary" 
+      open-type="share">
+      邀请好友写情绪
+    </button>
+  </view>
+
+  <button 
+    wx:if="{{pageLoadFailed}}"
+    class="weui-btn" 
+    style="background-color: #00BFFF; margin-top: 50rpx;" 
+    type="primary"
+    bindtap="refreshPage">
+    刷新页面
+  </button>
+
+</view>

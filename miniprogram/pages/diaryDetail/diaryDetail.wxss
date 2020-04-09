@@ -1,0 +1,61 @@
+/* miniprogram/pages/diaryDetail.wxss */
+
+.full-screen{
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  display:flex;
+  flex-direction:column;
+  align-items:center;/*垂直居中*/
+  justify-content: center;/*水平居中*/
+}
+
+.shareAndDonate > button{
+  flex-direction:row !important;
+  align-items:flex-start !important;
+  justify-content:flex-start !important;
+}
+
+.header{
+  color: #6666FF;
+  font-size: 22px; 
+  margin-bottom:100rpx;
+  text-align:center;
+}
+
+.diary{
+  /* position: fixed;
+  height: 100%;
+  width: 100%; */
+  background-color: white;
+  color:cornflowerblue;
+  margin: 0rpx 50rpx 40rpx 50rpx;
+  flex-direction:column;
+
+}
+
+.dairyCreateAt{
+  color: #3366FF;
+  font-size: 14px
+}
+
+.dairyContent{
+  font-size: 14px;
+  margin: 10rpx 50rpx 30rpx 50rpx
+}
+
+.emotion image{
+  width: 80rpx;
+  height: 80rpx;
+  margin: 0rpx 60rpx 0rpx 60rpx; 
+  float: left; 
+}
+
+.emotion text{
+  font-weight: bold;
+  width: 80rpx;
+  height: 80rpx;
+  margin: -20rpx 60rpx 0rpx 60rpx; 
+  float: left; 
+}
+

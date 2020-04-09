@@ -1,0 +1,27 @@
+/**index.wxss**/
+.full-screen{
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  display:flex;
+  flex-direction:column;
+  align-items:center;/*垂直居中*/
+  justify-content: center;/*水平居中*/
+}
+
+.diary{
+  /* position: fixed;
+  height: 100%;
+  width: 100%; */
+  background-color: white;
+  color:cornflowerblue;
+  margin: 30rpx 50rpx;
+  flex-direction:rows;
+
+}
+
+.lock-or-public{
+  width: 60rpx;
+  height: 60rpx;
+  margin-top: 30rpx
+}

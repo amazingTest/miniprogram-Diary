@@ -1,0 +1,80 @@
+<!--index.wxml-->
+
+<view
+  class="full-screen">
+  <view class="firstHeader" wx:if="{{isPageAuthorized && isOpenIdLoaded && !pageLoadFailed && isInfoLoaded}}">
+    漂流池内剩余 {{remainedSharedDiariesNum}} 篇情绪供您打捞~
+  </view>
+  <view class="header" wx:if="{{isPageAuthorized && isOpenIdLoaded && !pageLoadFailed && isInfoLoaded}}">
+    {{diaryAuthor}} 的情绪
+  </view>
+  <view class="diary" wx:if="{{isPageAuthorized && isOpenIdLoaded && !pageLoadFailed && isInfoLoaded}}">
+    <view class="container">
+      <text style="color: #3366FF; font-size: 14px">
+        {{diaryCreateAt}}
+      </text>
+    </view>
+    <view class="container" wx:if="{{isPageAuthorized && isOpenIdLoaded && !pageLoadFailed && isInfoLoaded}}">
+      <text style="font-size: 14px;margin: 10rpx 20rpx 20rpx 20rpx">
+        {{diaryContent}}
+      </text>
+    </view>
+    <view class="container" wx:if="{{isPageAuthorized && isOpenIdLoaded && !pageLoadFailed && isInfoLoaded}}">
+       <button
+        class="btn"
+        bindtap="thumbUpDiary">
+          <text>
+            已有 {{thumbUpNum}} 人点赞 
+          </text>
+          <image src='{{likeImageSrc}}'/>
+      </button>
+    </view>
+  </view>
+
+  <button
+    wx:if="{{isPageAuthorized && isOpenIdLoaded && !pageLoadFailed && isInfoLoaded}}"
+    class="weui-btn primary-button" 
+    type="primary" 
+    disabled="{{isSalvagingDiaries}}"
+    bindtap="getSharedDiaries">
+    打捞情绪
+  </button>
+  <button 
+    wx:if="{{isPageAuthorized && isOpenIdLoaded && !pageLoadFailed && isInfoLoaded}}"
+    class="weui-btn primary-button"
+    type="primary" 
+    open-type="share">
+    邀请好友写情绪
+  </button>
+
+  <!-- <button
+    wx:if="{{isOpenIdLoaded}}"
+    class="weui-btn primary-button" 
+    type="primary" 
+    disabled="{{isSalvagingDiaries}}"
+    bindtap="getSharedDiaries">
+    打捞授权
+  </button> -->
+
+  <button 
+    wx:if="{{isPageAuthorized && isOpenIdLoaded && pageLoadFailed}}"
+    class="weui-btn" 
+    style="background-color: #00BFFF; margin-top: 120rpx" 
+    type="primary" 
+    bindtap="refreshPage">
+     刷新页面
+  </button>
+  
+  <button 
+    wx:if="{{!isPageAuthorized}}"
+    class="weui-btn" 
+    style="background-color: #00BFFF" 
+    type="primary" 
+    bindtap="navigateToDiaryWritting">
+     先去写篇情绪吧~
+  </button>
+
+</view>
+
+
+

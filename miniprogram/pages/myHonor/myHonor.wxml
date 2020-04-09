@@ -1,0 +1,42 @@
+<!--index.wxml-->
+
+
+<view class="container" style="color: #6666FF;font-size: 22px; margin:50rpx">
+  我的成就
+</view>
+
+ <div 
+  class="diary">
+    <view class="container">
+      <text class="dairyCreateAt">
+        {{honorCreateAt}}
+      </text>
+    </view>
+    <view class="container">
+      <text class="dairyContent">
+        {{honorContent}}
+      </text>
+    </view>
+    <view class="container">
+      <image src="/images/like/like-on.png" style="width:77rpx; height:77rpx; margin:30rpx"></image>
+    </view>
+</div>
+
+<button 
+  wx:if="{{pageLoadFailed}}"
+  class="weui-btn" 
+  style="background-color: #00BFFF; margin-top: 120rpx" 
+  type="primary" 
+  bindtap="refreshPage">
+  刷新页面
+</button>
+
+<view class="container">
+  <button
+    class="weui-btn" 
+    style="background-color: #00BFFF; margin: 50rpx" 
+    type="primary" 
+    bindtap="previewDonationImage">
+    <text style="color: white" >给情绪小日记善意</text>
+  </button>
+</view>

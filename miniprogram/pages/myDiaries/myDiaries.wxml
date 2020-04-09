@@ -1,0 +1,54 @@
+<!--index.wxml-->
+
+
+<view class="container" style="color: #6666FF;font-size: 22px; margin:50rpx">
+  我的情绪
+</view>
+
+
+<view
+  wx:key="unique"
+  wx:for="{{diaries.data}}"
+  wx:if="{{diaries.data.length > 0}}">
+    <view class="diary">
+      <navigator 
+        open-type="navigate"
+        url="/pages/diaryDetail/diaryDetail?diaryId={{item._id}}&diaryOwner={{item.nickName}}&fromMy=1">
+          <view class="container">
+            <image class="lock-or-public" wx:if="{{!item.isShared}}" src="/images/lock.png"/>
+            <view class="container" wx:if="{{item.isShared}}">
+              <image class="lock-or-public"  src="/images/public.png"/>
+            </view>
+            <text style="color: #3366FF; font-size: 14px">
+              {{item.createAt}}
+            </text>
+          </view>
+          <view class="container">
+            <text style="font-size: 14px;margin: 20rpx 50rpx 50rpx 50rpx">
+              {{item.diary}}
+            </text>
+            <text wx:if="{{item.isShared}}" style="color: #333399; font-size: 14px; margin-bottom: 50rpx">
+              已有 {{item.thumbUpNum || 0}} 人点赞
+            </text>
+          </view>
+      </navigator>
+    </view>
+</view>
+
+<button 
+  wx:if="{{pageLoadFailed}}"
+  class="weui-btn" 
+  style="background-color: #00BFFF; margin-top: 120rpx" 
+  type="primary" 
+  bindtap="refreshPage">
+  刷新页面
+</button>
+
+<button 
+  wx:if="{{diaries.data.length == 0}}"
+  class="weui-btn" 
+  style="background-color: #00BFFF; margin-top: 120rpx" 
+  type="primary" 
+  bindtap="navigateToDiaryWritting">
+  写情绪
+</button>

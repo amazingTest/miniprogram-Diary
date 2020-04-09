@@ -1,0 +1,77 @@
+<!--index.wxml-->
+
+
+<view class="container" style="color: #6666FF;font-size: 22px; margin:50rpx">
+  我的使命
+</view>
+
+<view class="uploader">
+  <text class="uploader-text">写心情并生成情绪后将根据佛系值获得情绪币，若选择公开情绪，则可获得双倍情绪币。并且公开的情绪每获得一次点赞时，您将获得 10 情绪币的奖励。</text>
+</view>
+
+<view class="container">
+  <button
+    class="weui-btn" 
+    style="background-color: #00BFFF; margin: 50rpx" 
+    type="primary" 
+    bindtap="navigateToDiaryWritting" >
+    <text style="color: white" >写情绪</text>
+  </button>
+</view>
+
+<view class="uploader">
+  <text class="uploader-text">邀请好友写情绪，你将获得好友写情绪获得情绪币的 20% 。</text>
+</view>
+
+<view class="container">
+  <button
+    class="weui-btn" 
+    style="background-color: #00BFFF; margin: 50rpx" 
+    type="primary" 
+    open-type="share" >
+    <text style="color: white" >邀请好友写情绪</text>
+  </button>
+</view>
+
+
+<view class="uploader">
+  <text class="uploader-text">打捞情绪不仅可以感受别人的喜怒哀乐，也可以以点赞的形式给他人传播您的善意与关怀~ 快去打捞情绪吧！</text>
+</view>
+
+<view class="container">
+  <button
+    class="weui-btn" 
+    style="background-color: #00BFFF; margin: 50rpx" 
+    type="primary" 
+    bindtap="navigateToDrift" >
+    <text style="color: white" >打捞情绪</text>
+  </button>
+</view>
+
+<view class="uploader">
+  <text class="uploader-text">你是佛系至尊、情绪首富、打捞狂人还是毅力达人？快去排行榜上看看吧！</text>
+</view>
+
+<view class="container">
+  <button
+    class="weui-btn" 
+    style="background-color: #00BFFF; margin: 50rpx" 
+    type="primary" 
+    bindtap="navigateToRank" >
+    <text style="color: white" >查看排行榜</text>
+  </button>
+</view>
+
+<view class="uploader">
+  <text class="uploader-text">如果有什么话想跟作者说，可以点这个按钮哟~</text>
+</view>
+
+<view class="container">
+  <button
+    class="weui-btn" 
+    style="background-color: #00BFFF; margin: 50rpx" 
+    type="primary" 
+    bindtap="previewDonationImage">
+    <text style="color: white" >给作者善意</text>
+  </button>
+</view>

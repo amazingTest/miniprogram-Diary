@@ -1,0 +1,42 @@
+<!--index.wxml-->
+<view class="container">
+  
+  <button 
+    class="weui-btn" 
+    style="background-color: #00BFFF; margin-top: 120rpx" 
+    type="primary" 
+    bindtap="navigateToBuddhaRank">
+    前往佛系榜
+  </button>
+
+  
+  <button 
+    class="weui-btn" 
+    style="background-color: #00BFFF; margin-top: 120rpx" 
+    type="primary" 
+    bindtap="navigateToMoneyRank">
+    前往财富榜
+  </button>
+
+
+  <button 
+    class="weui-btn" 
+    style="background-color: #00BFFF; margin-top: 120rpx" 
+    type="primary" 
+    bindtap="navigateToSalvageRank">
+    前往捞神榜
+  </button>
+
+
+  <button 
+    class="weui-btn" 
+    style="background-color: #00BFFF; margin-top: 120rpx" 
+    type="primary" 
+    bindtap="navigateToSuccessiveRank">
+    前往情毅榜
+  </button>
+
+</view>
+
+
+
