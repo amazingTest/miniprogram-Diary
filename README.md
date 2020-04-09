@@ -12,6 +12,10 @@
 
 ![AI日记](https://github.com/amazingTest/miniprogram-Diary/blob/master/img/sample.jpg)
 
+![AI日记](https://github.com/amazingTest/miniprogram-Diary/blob/master/img/sample1.jpg)
+
+![AI日记](https://github.com/amazingTest/miniprogram-Diary/blob/master/img/sample2.jpg)
+
 ## 直接扫码体验
 
 ![AI日记](https://github.com/amazingTest/miniprogram-Diary/blob/master/img/2d-code.jpg)
